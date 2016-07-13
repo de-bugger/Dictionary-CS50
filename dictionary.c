@@ -89,33 +89,19 @@ bool load(const char* dictionary)
 	   	}
 	   	else
 	   	{
-	   	    node *p=hashtable[hashvalue],*t=NULL;
-	   	    while(p!=NULL)
-	   	    {
-	   	        if(strcmp(p->word,newnode->word)<0)
-	   	        {
-	   	            newnode->next=p->next;
-	   	            p->next=newnode;
-	   	            break;
-	   	        }
-	   	        else if(strcmp(p->word,newnode->word)>0)
-	   	        {
-	   	            newnode->next=p;
-	   	            if(t!=NULL)
-	   	            {
-	   		            t->next=newnode;
-	   		        }
-	   		        else
-	   		        {
-	   		            hashtable[hashvalue]=newnode;
-	   		        }
-	   		        break;
-	   	        }
-	   	        t=p;
-	   	        p=p->next;
+	   	     node *p=hashtable[hashvalue],*prev=NULL;
+	   	    while(p && strcmp(p->word,newnode->word)<0){
+                prev= p;
+                p=p->next;
 	   	    }
-	   		/*newnode->next = hashtable[hashvalue];
-	   		hashtable[hashvalue] = newnode;*/
+	   	    if(prev==NULL){
+                newnode->next=p;
+                hashtable[hashvalue]=newnode;
+	   	    }
+	   	    else{
+                prev->next=newnode;
+                newnode->next=p;
+	   	    }
 	   	}
 	   	//free(newnode);
     }
