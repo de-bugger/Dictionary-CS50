@@ -1,2 +1,2 @@
 # Dictionary-CS50
-Implemented a Spell Checker using a dictionary file provided by the harward. The dictionary file is loaded into memory through hash tables. The program will give mispelled words along with the number of words in dictionary and test_file.
+Implemented a Spell Checker using a dictionary file provided by the harvard. The dictionary file is loaded into memory through hash tables. The program will give mispelled words along with the number of words in dictionary and test_file.
