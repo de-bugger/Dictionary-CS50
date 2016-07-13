@@ -1,1 +1,0 @@
-Implementation of dictionary using hashtables in C++ with the help of spell checker library provided by harward as a part of their CS50 course.
