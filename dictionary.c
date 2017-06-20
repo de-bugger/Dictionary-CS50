@@ -129,18 +129,11 @@ bool unload(void)
 	for(int i = 0; i < 26;i++)
 	{
 		t = hashtable[i];
-		if(t&&t->next==NULL)
+		while(t)
 		{
+			t2=t->next;
 			free(t);
-		}
-		else
-		{
-			while(t)
-			{
-				t2=t->next;
-				free(t);
-				t=t2;
-			}
+			t=t2;
 		}
 		hashtable[i]=NULL;
 	}
